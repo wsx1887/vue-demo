@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import ViewCss from './views/css.vue';
+import ViewGradient from './views/css/gradient.vue';
 /* import ViewJs from './views/js.vue';
 import ViewVue from './views/vue.vue';
 import ViewX4 from './views/x4.vue';
@@ -17,7 +18,17 @@ export default new Router({
     {
       path: '/',
       name: 'css',
-      component: ViewCss
+      component:ViewCss,
+      children:[
+        {
+          path:'',
+          name:'gradient',
+          meta:{
+            title:'渐变背景'
+          },
+          component:ViewGradient
+        }
+      ]
     },
     {
       path: '/about',
