@@ -1,5 +1,5 @@
 <template>
-    <div class="js">
-        js 测试
-    </div>
+  <div class="js">
+    <router-view></router-view>
+  </div>
 </template>

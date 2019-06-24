@@ -16,17 +16,26 @@ export default new Router({
   base: process.env.NODE_ENV === 'production' ? "/vueapp/" : "/",
   routes: [
     {
-      path: '/',
+      path:'/',
+      redirect:{name:'css'}
+    },
+    {
+      path: '/css',
       name: 'css',
-      component:ViewCss,
-      children:[
+      component: ViewCss,
+      redirect:{name:'gradient'},
+      children: [
         {
-          path:'',
-          name:'gradient',
-          meta:{
-            title:'渐变背景'
+          path: '',
+          redirect:{name:'gradient'}
+        },
+        {
+          path: 'gradient',
+          name: 'gradient',
+          meta: {
+            title: '渐变背景'
           },
-          component:ViewGradient
+          component: ViewGradient
         }
       ]
     },
