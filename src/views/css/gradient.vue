@@ -1,5 +1,6 @@
 <template>
     <div id="gradient">
+      <h1>css 3 渐变背景</h1>
       <div class="bp1">1</div>
       <div class="bp2">2</div>
       <div class="bp3">3</div>
@@ -32,6 +33,7 @@ div:not(#gradient) {
   margin: 5px;
   margin-top: 10px;
   float: left;
+  color: rgb(220, 20, 60);
 }
 .bp1 {
   background-color: hsla(196, 100%, 48%, 1.00);

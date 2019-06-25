@@ -33,9 +33,17 @@ export default new Router({
           path: 'gradient',
           name: 'gradient',
           meta: {
-            title: '渐变背景'
+            title: '渐变'
           },
           component: ViewGradient
+        },
+        {
+          path: 'textshadow',
+          name: 'textshadow',
+          meta: {
+            title: '文字阴影'
+          },
+          component:()=>import('./views/css/textshadow.vue')
         }
       ]
     },
@@ -50,7 +58,15 @@ export default new Router({
     {
       path: '/js',
       name: 'js',
-      component: () => import('./views/js.vue')
+      component: () => import('./views/js.vue'),
+      children:[{
+        path:'ball',
+        name:'ball',
+        meta:{
+          title:'弹球游戏'
+        },
+        component:()=>import('./views/js/弹球.vue')
+      }]
     },
     {
       path: '/vue',

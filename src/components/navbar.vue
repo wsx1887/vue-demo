@@ -3,9 +3,20 @@
     <ul class="navul">
       <li>
         <router-link :to="{name:'css'}">CSS</router-link>
+        <span class="arrow"></span>
+        <ul class="dropdown-menu">
+          <li><router-link :to="{name:'gradient'}">渐变</router-link></li>
+          <li><router-link :to="{name:'textshadow'}">文字阴影</router-link></li>
+        </ul>
       </li>
       <li>
         <router-link :to="{name:'js'}">JS</router-link>
+        <span class="arrow"></span>
+        <ul class="dropdown-menu">
+          <li><router-link :to="{name:'ball'}">弹球游戏</router-link></li>
+          <li><router-link :to="{name:'jigsaw'}">拼图游戏</router-link></li>
+          <li><router-link :to="{name:'snake'}">贪吃蛇</router-link></li>
+        </ul>
       </li>
       <li>
         <router-link :to="{name:'vue'}">VUE</router-link>
@@ -61,12 +72,25 @@
 .navul a:hover {
   border-bottom: solid 2px rgb(0, 139, 98);
 }
-.navul li:first-of-type a {
+.navul>li{
+  position: relative;
+}
+.navul>li:first-of-type a {
   margin-left: 0%;
   padding-left: 0%;
 }
-.navul li:last-of-type a {
+.navul>li:last-of-type a {
   margin-right: 0%;
   padding-right: 0%;
+}
+.dropdown-menu{
+  /*display: none;*/
+  list-style: none;
+  padding: 0;
+  margin: 0%;
+  position: absolute;
+}
+.dropdown-menu>li{
+  display: block;
 }
 </style>
