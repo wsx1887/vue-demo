@@ -16,18 +16,18 @@ export default new Router({
   base: process.env.NODE_ENV === 'production' ? "/vueapp/" : "/",
   routes: [
     {
-      path:'/',
-      redirect:{name:'css'}
+      path: '/',
+      redirect: { name: 'css' }
     },
     {
       path: '/css',
       name: 'css',
       component: ViewCss,
-      redirect:{name:'gradient'},
+      redirect: { name: 'gradient' },
       children: [
         {
           path: '',
-          redirect:{name:'gradient'}
+          redirect: { name: 'gradient' }
         },
         {
           path: 'gradient',
@@ -43,7 +43,7 @@ export default new Router({
           meta: {
             title: '文字阴影'
           },
-          component:()=>import('./views/css/textshadow.vue')
+          component: () => import('./views/css/textshadow.vue')
         }
       ]
     },
@@ -59,14 +59,23 @@ export default new Router({
       path: '/js',
       name: 'js',
       component: () => import('./views/js.vue'),
-      children:[{
-        path:'ball',
-        name:'ball',
-        meta:{
-          title:'弹球游戏'
+      children: [{
+        path: 'ball',
+        name: 'ball',
+        meta: {
+          title: '弹球游戏'
         },
-        component:()=>import('./views/js/弹球.vue')
-      }]
+        component: () => import('./views/js/弹球.vue')
+      },
+      {
+        path: 'jigsaw',
+        name: 'jigsaw',
+        meta: {
+          title: '拼图游戏'
+        },
+        component: () => import('./views/js/拼图游戏.vue')
+      }
+      ]
     },
     {
       path: '/vue',

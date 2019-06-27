@@ -41,6 +41,7 @@
   height: 100%;
   margin: 0%;
   padding: 0%;
+  display: none;
 }
 .navul {
   list-style-type: none;
