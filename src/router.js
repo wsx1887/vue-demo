@@ -13,7 +13,7 @@ Vue.use(Router);
 export default new Router({
   mode: 'history',
   //base: process.env.BASE_URL,
-  base: process.env.NODE_ENV === 'production' ? "/vueapp/" : "/",
+  base: process.env.NODE_ENV === 'production' ? '/vueapp/' : '/vueapp/vueapp/',
   routes: [
     {
       path: '/',
@@ -74,6 +74,14 @@ export default new Router({
           title: '拼图游戏'
         },
         component: () => import('./views/js/拼图游戏.vue')
+      },
+      {
+        path:'snake',
+        name:'snake',
+        meta:{
+          title:'贪吃蛇'
+        },
+        component:()=>import('./views/js/贪吃蛇.vue')
       }
       ]
     },
