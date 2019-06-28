@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <header id="header">
-      <a class="brand" href>A</a>
+      <a class="brand" href="/">A</a>
       <navbar/>
     </header>
     <main id="main">
@@ -58,7 +58,7 @@ body {
 .brand {
   font-size: 3em;
   color: #fbb500;
-  text-shadow: 0 0 2px white, 0 3px 3px #ff3, 2px 4px 4px #fd3;
+  /*text-shadow: 0 0 2px white, 0 3px 3px #ff3, 2px 4px 4px #fd3;*/
   -webkit-transform: scale(1, -1);
   -moz-transform: scale(1, -1);
   -ms-transform: scale(1, -1);
