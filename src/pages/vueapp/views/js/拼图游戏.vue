@@ -1,6 +1,8 @@
 <template>
   <div id="jigsaw">
     <canvas id="canvas"></canvas>
+    <h3>原图</h3>
+    <img src="/img/animal-1850210.jpg" alt="原图" />
   </div>
 </template>
 <script>
@@ -8,13 +10,14 @@ export default {
   methods: {
     gaming() {
       var img = new Image();
-      img.src = "/img/6d793efcjw1e6hy5ex31fj20vv16hn99.jpg";
+      img.src = "/img/animal-1850210.jpg";
       //var canvasSize = 600;
       var canvas = document.getElementById("canvas");
       var gtx = canvas.getContext("2d");
-      var pic = 3;
+      var pic = 3; //横、列片数
       //var ttt;
       img.onload = function() {
+        //设置画板大小
         if (
           img.width / img.height >
           (window.innerWidth - 30) / (window.innerHeight - 30)
@@ -25,6 +28,7 @@ export default {
           canvas.height = window.innerHeight - 30;
           canvas.width = (img.width * (window.innerHeight - 30)) / img.height;
         }
+        //每块大小
         var blockOption = {
           width: canvas.width / pic,
           height: canvas.height / pic
@@ -95,12 +99,17 @@ export default {
             );
           }
         };
-        var blockData = blockDataRandomBuild();
+        var blockData = blockDataRandomBuild1();
         blockData[pic * pic - pic].drawIndex = pic * pic;
         canvasView.drawBorder();
         for (let block of blockData) {
           canvasView.drawBlock(block);
         }
+
+        var img1 = document.querySelector("img");
+        img1.height = (canvas.height / 4) * 3;
+        img1.width = canvas.width;
+
         canvas.addEventListener("click", function(event) {
           var x = event.offsetX;
           var y = event.offsetY;
@@ -130,6 +139,11 @@ export default {
             var left = di - 1;
             var right = di + 1;
             var down = di + pic;
+            var rowCurrent = Math.ceil((block.drawIndex + 1) / pic);
+            var rowLeft = Math.ceil((left + 1) / pic);
+            var rowRight = Math.ceil((right + 1) / pic);
+            if (rowLeft !== rowCurrent) left = -1;
+            if (rowRight !== rowCurrent) right = -1;
             var directArray = [up, left, right, down];
             var drawIndexArray = [];
             for (let b of blockData) {
@@ -148,10 +162,12 @@ export default {
           }
         });
       };
+      //块格式：{图片原块，画的块}
       function block(imgIndex, drawIndex) {
         this.imgIndex = imgIndex;
         this.drawIndex = drawIndex;
       }
+      /*
       function blockDataRandomBuild() {
         var blockData = [];
         var indexArray = [];
@@ -163,17 +179,53 @@ export default {
           blockData[i] = new block(i, indexArray[i]);
         }
         return blockData;
+      }*/
+      function blockDataRandomBuild1() {
+        var blockData = [];
+        //var indexArray = [];
+        for (let i = 0; i < pic * pic; i++) {
+          blockData[i] = new block(i, i);
+        }
+        //最后一行左边往下画，移出位置
+        blockData[pic * pic - pic].drawIndex = pic * pic;
+        var d = pic * pic - pic; //空位块下标
+
+        for (let i = 0; i < pic * pic * 10; i++) {
+          var block1 = getNeighbourBlock(d);
+          [d, block1.drawIndex] = [block1.drawIndex, d];
+        }
+        return blockData;
+        //随机获取一个周围的有效块
+        function getNeighbourBlock(index) {
+          var up = index - pic;
+          var left = index - 1;
+          var right = index + 1;
+          var down = index + pic;
+          var rowCurrent = Math.ceil((block.drawIndex + 1) / pic);
+          var rowLeft = Math.ceil((left + 1) / pic);
+          var rowRight = Math.ceil((right + 1) / pic);
+          if (rowLeft !== rowCurrent) left = -1;
+          if (rowRight !== rowCurrent) right == -1;
+          var directArray = [up, left, right, down].filter(
+            item => item !== -1 && item < pic * pic && item >= 0
+          );
+          var randomIndex =
+            directArray[Math.floor(Math.random() * directArray.length)];
+          var block1 = blockData.find(item => item.drawIndex === randomIndex);
+          return block1;
+        }
       }
+      /*
       function randomArray(arr) {
         for (let i = arr.length - 1; i >= 0; i--) {
           let n = Math.floor(Math.random() * (i + 1));
           [arr[i], arr[n]] = [arr[n], arr[i]];
         }
-      }
+      }*/
     }
   },
   mounted() {
-      this.gaming();
+    this.gaming();
   }
 };
 </script>
@@ -186,5 +238,14 @@ canvas {
   margin-bottom: 0;
   padding: 0;
   box-sizing: content-box;
+}
+img {
+  opacity: 0.8;
+  display: block;
+  margin: 0% auto;
+}
+h3 {
+  display: block;
+  text-align: center;
 }
 </style>
