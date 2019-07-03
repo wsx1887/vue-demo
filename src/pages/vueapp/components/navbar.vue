@@ -10,7 +10,7 @@
         </ul>
       </li>
       <li>
-        <router-link :to="{name:'js'}">JS</router-link>
+        <a>JS</a>
         <span class="arrow"></span>
         <ul class="dropdown-menu">
           <li><router-link :to="{name:'ball'}">弹球游戏</router-link></li>
@@ -20,12 +20,17 @@
       </li>
       <li>
         <router-link :to="{name:'vue'}">VUE</router-link>
+        <span class="arrow"></span>
+        <ul class="dropdown-menu">
+          <li><a href="/shopping">电商网简单实例</a></li>
+          <li><a href="/zhihuribao">知乎日报网页版</a></li>
+        </ul>
       </li>
       <li>
         <router-link :to="{name:'x4'}">X4工厂计算器</router-link>
       </li>
       <li>
-        <router-link :to="{name:'bootstrap4'}">Bootstrap4</router-link>
+        <a href="/bootstrap4简略文档.html">Bootstrap4</a>
       </li>
       <li>
         <router-link :to="{name:'tools'}">工具</router-link>
@@ -37,6 +42,9 @@
   </nav>
 </template>
 <style scoped>
+a{
+  cursor: pointer;
+}
 #nav {
   height: 100%;
   margin: 0%;
@@ -97,7 +105,6 @@
   white-space: nowrap;
   border: 1px solid #bbb;
   padding-left: .5em;
-  text-align: left;
   top: 100%;
   right: 0%;
   box-sizing: border-box;
@@ -109,6 +116,7 @@
 }
 .dropdown-menu>li>a{
   display: block;
+  text-align: center;
 }
 .arrow{
   border-left: .3em solid transparent;
