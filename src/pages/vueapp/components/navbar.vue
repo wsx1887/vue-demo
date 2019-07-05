@@ -19,7 +19,7 @@
         </ul>
       </li>
       <li>
-        <router-link :to="{name:'vue'}">VUE</router-link>
+        <a>VUE</a>
         <span class="arrow"></span>
         <ul class="dropdown-menu">
           <li><a href="/shopping">电商网简单实例</a></li>
@@ -27,7 +27,7 @@
         </ul>
       </li>
       <li>
-        <router-link :to="{name:'x4'}">X4工厂计算器</router-link>
+        <a href="/x4工厂计算器.html">X4工厂计算器</a>
       </li>
       <li>
         <a href="/bootstrap4简略文档.html">Bootstrap4</a>

@@ -10,7 +10,7 @@ import ViewTools from './views/tools.vue'; */
 
 Vue.use(Router);
 
-export default new Router({
+var router= new Router({
   mode: 'history',
   //base: process.env.BASE_URL,
   base: process.env.NODE_ENV === 'production' ? '/vueapp/' : '/vueapp/vueapp/',
@@ -53,7 +53,8 @@ export default new Router({
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
+      component: () => import(/* webpackChunkName: "about" */ './views/About.vue'),
+      meta: { title: '关于' }
     },
     {
       path: '/js',
@@ -76,29 +77,14 @@ export default new Router({
         component: () => import('./views/js/拼图游戏.vue')
       },
       {
-        path:'snake',
-        name:'snake',
-        meta:{
-          title:'贪吃蛇'
+        path: 'snake',
+        name: 'snake',
+        meta: {
+          title: '贪吃蛇'
         },
-        component:()=>import('./views/js/贪吃蛇.vue')
+        component: () => import('./views/js/贪吃蛇.vue')
       }
       ]
-    },
-    {
-      path: '/vue',
-      name: 'vue',
-      component: () => import('./views/vue.vue')
-    },
-    {
-      path: '/x4',
-      name: 'x4',
-      component: () => import("./views/x4.vue")
-    },
-    {
-      path: '/bootstrap4',
-      name: 'bootstrap4',
-      component: () => import('./views/bootstrap4.vue')
     },
     {
       path: '/tools',
@@ -106,4 +92,14 @@ export default new Router({
       component: () => import('./views/tools.vue')
     }
   ]
+});
+/*eslint-disable*/
+router.beforeEach((to,from,next)=>{
+  if(to.meta.title){
+    document.title=to.meta.title;
+  }
+  next();
 })
+/*eslint-enable*/
+
+export default router;
