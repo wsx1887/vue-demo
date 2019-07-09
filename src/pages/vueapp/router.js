@@ -90,6 +90,11 @@ var router= new Router({
       path: '/tools',
       name: 'tools',
       component: () => import('./views/tools.vue')
+    },
+    {
+      path:'/login',
+      name:'login',
+      component:()=>import('./views/login.vue')
     }
   ]
 });
