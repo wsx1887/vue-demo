@@ -1,5 +1,6 @@
 <template>
   <div id="log-join">
+    <!-- 登录界面 -->
     <div id="login" class="login" v-if="show==='login'">
       <h2>用户登录</h2>
       <form method="post">
@@ -18,6 +19,7 @@
         <a>免费注册</a>
       </div>
     </div>
+    <!-- 注册界面 -->
     <div id="join" class="join" v-if="show==='join'">
       <h2>用户注册</h2>
       <form>
@@ -61,7 +63,6 @@
           <label>密保答案：</label>
           <input type="text" />
         </div>
-
         <input type="submit" value="注册" />
       </form>
       <div class="other-link">
@@ -69,6 +70,7 @@
         <a>取回密码</a>
       </div>
     </div>
+    <!-- 取回密码界面 -->
     <div id="getpassword" class="getpassword" v-if="show==='getpassword'">
       <h2>取回密码</h2>
       <form>
@@ -91,13 +93,21 @@
   </div>
 </template>
 <script>
-import axios from 'axios';
+//import axios from "axios";
 
 export default {
   data() {
     return {
       show: "login"
     };
+  },
+  methods: {
+    changeShow(show){
+      this.show=show;
+    }
+  },
+  components:{
+    
   }
 };
 </script>
@@ -136,9 +146,9 @@ export default {
   margin: auto;
   margin-top: 2em;
 }
-.other-link{
-    display: flex;
-    justify-content: space-around;
-    margin-top: 1em;
+.other-link {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1em;
 }
 </style>
