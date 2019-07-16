@@ -89,11 +89,13 @@ var router= new Router({
     {
       path: '/tools',
       name: 'tools',
+      meta:{title:'工具'},
       component: () => import('./views/tools.vue')
     },
     {
       path:'/login',
       name:'login',
+      meta:{title:'登录-注册'},
       component:()=>import('./views/login.vue')
     }
   ]
