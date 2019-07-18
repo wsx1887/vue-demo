@@ -144,7 +144,7 @@ export default {
   name: "login",
   data() {
     return {
-      successMessage:"",
+      successMessage: "",
       show: "login",
       loginDate: { name: "", passWord: "" },
       joinDate: {
@@ -185,11 +185,18 @@ export default {
       if (this.joinDate.mail.trim().match(/\S+@\S+.\S+/) == null) return;
       if (this.joinDate.question.trim().length < 1) return;
       if (this.joinDate.answer.trim().length < 1) return;
-      axios.post("/api/vueapp/join", this.joinDate).then(res => {
-        if (res.status == 200) {
-          this.successMessage=res.statusText;
+      axios.post("/api/vueapp/join", this.joinDate).then(
+        res => {
+          if (res.data.joinType === 0) {
+            this.successMessage = res.data.message;
+          }
+          alert(res.data.message);
+        },
+        err => {
+          console.log(err);//eslint-disable-line
+          alert("注册失败，请稍候重试");
         }
-      });
+      );
     }
   }
 };
