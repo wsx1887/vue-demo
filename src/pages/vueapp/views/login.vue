@@ -194,10 +194,12 @@ export default {
         },
         err => {
           console.log(err);//eslint-disable-line
-          alert("注册失败，请稍候重试");
+          alert("注册失败，请稍后重试");
         }
       );
-    }
+    },
+    login(){},
+    getPassWord(){}
   }
 };
 </script>
