@@ -26,7 +26,7 @@
             title="请输入6~20个字符"
           />
         </div>
-        <input type="submit" value="登录" />
+        <input type="submit" value="登录" @click.stop.prevent="login"/>
       </form>
       <div class="other-link">
         <a v-on:click="changeShow('getpassword')">忘记密码</a>
@@ -124,7 +124,7 @@
           <input type="text" required v-model="getpassWordDate.answer" />
         </div>
 
-        <input type="submit" value="提交" />
+        <input type="submit" value="提交" @click.stop.prevent="getPassWord"/>
       </form>
       <div class="other-link">
         <a v-on:click="changeShow('login')">用户登录</a>
@@ -194,10 +194,12 @@ export default {
         },
         err => {
           console.log(err);//eslint-disable-line
-          alert("注册失败，请稍候重试");
+          alert("注册失败，请稍后重试");
         }
       );
-    }
+    },
+    login(){},
+    getPassWord(){}
   }
 };
 </script>
