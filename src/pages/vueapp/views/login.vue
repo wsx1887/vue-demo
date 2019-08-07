@@ -142,10 +142,16 @@ import axios from "axios";
 
 export default {
   name: "login",
+  props:{
+    propshow:{
+      type:String,
+      default:'login'
+    }
+  },
   data() {
     return {
       successMessage: "",
-      show: "login",
+      show: this.propshow,
       loginDate: { name: "", passWord: "" },
       joinDate: {
         name: "",
