@@ -96,7 +96,8 @@ var router= new Router({
       path:'/login',
       name:'login',
       meta:{title:'登录-注册'},
-      component:()=>import('./views/login.vue')
+      component:()=>import('./views/login.vue'),
+      props:true
     }
   ]
 });
