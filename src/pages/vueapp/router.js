@@ -92,8 +92,12 @@ var router= new Router({
       meta:{title:'工具'},
       component: () => import('./views/tools.vue')
     },
-    {
+     {
       path:'/login',
+      redirect:{name:'login',params:{propshow:'login'}}
+    }, 
+    {
+      path:'/login/:propshow',
       name:'login',
       meta:{title:'登录-注册'},
       component:()=>import('./views/login.vue'),

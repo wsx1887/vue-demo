@@ -206,6 +206,11 @@ export default {
     },
     login(){},
     getPassWord(){}
+  },
+  watch: {
+    '$route'(to,from){//eslint-disable-line
+      this.show=to.params.propshow;
+    }
   }
 };
 </script>

@@ -53,27 +53,23 @@
         <router-link :to="{name:'about'}">关于</router-link>
       </li>
       <li>
-        <router-link :to="{name:'login'}">登录/注册</router-link>
+        <router-link :to="{name:'login',params:{propshow:'login'}}">登录/注册</router-link>
         <span class="arrow"></span>
         <div class="dropdown-menu">
           <div class="input-group">
-            <label>
-              用户名：
+            <label>用户名：</label>
               <input type="text" />
-            </label>
           </div>
           <div class="input-group">
-            <label>
-              密码：
+            <label>密码：</label>
               <input type="password" />
-            </label>
           </div>
           <div class="input-group">
             <button>登录</button>
           </div>
           <div class="input-group">
-            <router-link :to="{name:'login'}">忘记密码</router-link>
-            <router-link :to="{name:'login'}">注册</router-link>
+            <router-link :to="{name:'login',params:{propshow:'getpassword'}}">忘记密码</router-link>
+            <router-link :to="{name:'login',params:{propshow:'join'}}">注册</router-link>
           </div>
         </div>
       </li>
@@ -169,5 +165,9 @@ a {
   margin-left: -0.5em;
   margin-top: -0.1em;
   display: inline-block;
+}
+.input-group>label{
+  display: inline-block;
+  min-width: 4em;
 }
 </style>
