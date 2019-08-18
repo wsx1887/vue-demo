@@ -74,6 +74,15 @@
             </div>
           </div>
         </template>
+        <template v-if="user.token!=null&&user.token!=''">
+          <a href="">{{user.name}}</a>
+          <span class="arrow"></span>
+          <div class="dropdown-menu">
+            <div class="input-group">
+              <button type='button' style="margin:1em;" id="checkout">退出</button>
+            </div>
+          </div>
+        </template>
       </li>
     </ul>
   </nav>
@@ -83,6 +92,13 @@ export default {
   computed: {
     user() {
       return this.$store.state.user;
+    }
+  },
+  methods: {
+    checkout(){
+      window.localStorage.name = '';
+        window.localStorage.token = '';
+        this.$store.commit('updateUser', { name: '', token: '' });
     }
   }
 };
