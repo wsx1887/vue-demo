@@ -66,7 +66,7 @@
               <input type="password" />
             </div>
             <div class="input-group">
-              <button>登录</button>
+              <button @click="login">登录</button>
             </div>
             <div class="input-group">
               <router-link :to="{name:'login',params:{propshow:'getpassword'}}">忘记密码</router-link>
@@ -75,11 +75,11 @@
           </div>
         </template>
         <template v-if="user.token!=null&&user.token!=''">
-          <a href="">{{user.name}}</a>
+          <a href>{{user.name}}</a>
           <span class="arrow"></span>
           <div class="dropdown-menu">
             <div class="input-group">
-              <button type='button' style="margin:1em;" id="checkout">退出</button>
+              <button type="button" style="margin:1em;" id="checkout" @click="checkout">退出</button>
             </div>
           </div>
         </template>
@@ -95,11 +95,13 @@ export default {
     }
   },
   methods: {
-    checkout(){
-      window.localStorage.name = '';
-        window.localStorage.token = '';
-        this.$store.commit('updateUser', { name: '', token: '' });
-    }
+    checkout() {
+      window.localStorage.name = "";
+      window.localStorage.token = "";
+      this.$store.commit("updateUser", { name: "", token: "" });
+    },
+    getPassWord(){},
+    login(){}
   }
 };
 </script>
