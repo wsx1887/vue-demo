@@ -42,6 +42,10 @@ export default new Vuex.Store({
           }
         }).catch(err => reject(err));
       })
+    },
+    join(context,d){
+      
     }
   }
 })
+、
