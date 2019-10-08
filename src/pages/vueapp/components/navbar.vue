@@ -52,7 +52,7 @@
       <li>
         <router-link :to="{name:'about'}">关于</router-link>
       </li>
-      <li>
+<!--       <li>
         <template v-if="user.token==null||user.token===''">
           <router-link :to="{name:'login',params:{propshow:'login'}}">登录/注册</router-link>
           <span class="arrow"></span>
@@ -83,7 +83,7 @@
             </div>
           </div>
         </template>
-      </li>
+      </li> -->
     </ul>
   </nav>
 </template>
@@ -194,4 +194,5 @@ a {
   display: inline-block;
   min-width: 4em;
 }
+
 </style>
