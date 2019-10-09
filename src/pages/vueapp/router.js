@@ -11,9 +11,9 @@ import ViewTools from './views/tools.vue'; */
 Vue.use(Router);
 
 var router= new Router({
-  mode: 'history',
+  //mode: 'history',
   //base: process.env.BASE_URL,
-  base: process.env.NODE_ENV === 'production' ? '/vueapp/' : '/vueapp/vueapp/',
+  base: process.env.NODE_ENV === 'production' ? '/webdoc/' : '/vueapp/vueapp/',
   routes: [
     {
       path: '/',

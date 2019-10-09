@@ -2,7 +2,7 @@
   <div id="jigsaw">
     <canvas id="canvas"></canvas>
     <h3>原图</h3>
-    <img src="/img/animal-1850210.jpg" alt="原图" />
+    <img src="/webdoc/img/animal-1850210.jpg" alt="原图" />
   </div>
 </template>
 <script>
@@ -10,7 +10,7 @@ export default {
   methods: {
     gaming() {
       var img = new Image();
-      img.src = "/img/animal-1850210.jpg";
+      img.src = "/webdoc/img/animal-1850210.jpg";
       //var canvasSize = 600;
       var canvas = document.getElementById("canvas");
       var gtx = canvas.getContext("2d");
