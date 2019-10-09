@@ -60,7 +60,7 @@ export default new vuex.Store({
         // 请求商品列表
         getProductList (context) {
             // 通过 ajax 获取
-            axios.get('/data/shopping-productList.json').then(res=>{
+            axios.get('./data/shopping-productList.json').then(res=>{
                 context.commit('setProductList',res.data);
             })
         },

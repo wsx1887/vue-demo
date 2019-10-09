@@ -27,5 +27,6 @@ module.exports = {
             filename: '电商网站实例.html',
             title: '电商网站实例'
         }
-    }
+    },
+    publicPath:process.env.NODE_ENV === 'production'? './': '/'
 }

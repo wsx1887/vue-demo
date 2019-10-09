@@ -4,8 +4,8 @@ import vue from 'vue'
 vue.use(Router);
 
 const router = new Router({
-    mode: 'history',
-    base: process.env.NODE_ENV === 'production' ? '/shopping/' : '/shopping/shopping/',
+    //mode: 'history',
+    base: process.env.NODE_ENV === 'production' ? '/webdoc/' : '/shopping/shopping/',
     routes: [
         {
             path: '/list',

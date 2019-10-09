@@ -33,18 +33,18 @@
         <span class="arrow"></span>
         <ul class="dropdown-menu">
           <li>
-            <a href="/shopping">电商网简单实例</a>
+            <a href="./电商网站实例.html">电商网简单实例</a>
           </li>
           <li>
-            <a href="/zhihuribao">知乎日报网页版</a>
+            <a href="知乎日报网页版.html">知乎日报网页版</a>
           </li>
         </ul>
       </li>
       <li>
-        <a href="/x4工厂计算器.html">X4工厂计算器</a>
+        <a href="x4工厂计算器.html">X4工厂计算器</a>
       </li>
       <li>
-        <a href="/bootstrap4简略文档.html">Bootstrap4</a>
+        <a href="bootstrap4简略文档.html">Bootstrap4</a>
       </li>
       <li>
         <router-link :to="{name:'tools'}">工具</router-link>

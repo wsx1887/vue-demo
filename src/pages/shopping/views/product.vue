@@ -14,7 +14,7 @@
       <h2>产品介绍</h2>
       <img
         v-for="n in 10"
-        :src="'/img/shopping/' + n + '.jpg'"
+        :src="'./img/shopping/' + n + '.jpg'"
         :key="n"
         alt="假装这里有图片"
       >
