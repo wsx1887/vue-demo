@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <header id="header">
-      <a class="brand" href="/">A</a>
+      <a class="brand" href="/webdoc">A</a>
       <navbar/>
     </header>
     <main id="main">

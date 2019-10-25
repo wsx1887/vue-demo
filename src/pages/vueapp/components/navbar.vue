@@ -28,7 +28,7 @@
           </li>
         </ul>
       </li>
-      <li>
+<!--       <li>
         <a>VUE</a>
         <span class="arrow"></span>
         <ul class="dropdown-menu">
@@ -45,7 +45,7 @@
       </li>
       <li>
         <a href="bootstrap4简略文档.html">Bootstrap4</a>
-      </li>
+      </li> -->
       <li>
         <router-link :to="{name:'tools'}">工具</router-link>
       </li>
